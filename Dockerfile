@@ -23,7 +23,7 @@ RUN apk --update --upgrade add git bash supervisor nodejs nodejs-npm \
 	&& apk del git nodejs-npm nodejs
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
+VOLUME ["/certs"]
 EXPOSE 8081
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
